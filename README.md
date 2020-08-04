@@ -16,6 +16,8 @@
      5. [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
   6. [Don"t repeat yourself (DRY)](#dont-repeat-yourself-dry)
 
+#### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
+
 ## Introduction
 
 Software engineering principles, from Robert C. Martin"s book
