@@ -431,6 +431,19 @@ create_menu(
     )
 )
 ```
+Dont' forget add documentation at function.
+
+```
+>>> create_menu.__doc__
+A configuration for the Menu.
+
+    Attributes:
+        title: The title of the Menu.
+        body: The body of the Menu.
+        button_text: The text for the button label.
+        cancellable: Can it be cancelled?
+```
+
 **[⬆ back to top](#table-of-contents)**
 
 ### Functions should do one thing
