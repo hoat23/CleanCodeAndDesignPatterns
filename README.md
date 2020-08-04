@@ -257,6 +257,46 @@ def create_micro_brewery(name: Text = "Hipster Brew Co."):
 
 **[⬆ back to top](#table-of-contents)**
 ## **Functions**
+
+### Documenting Code
+
+Consider the following example. Let's say we have a function that expects a dictionary to validate some data:
+
+```
+def data_from_response(response: dict) -> dict:
+    if response["status"] != 200:
+        raise ValueError
+    return {"data": response["payload"]}
+``` 
+Here, we can see a function that takes a dictionary and returns another dictionary. Potentially, it can raise an exception if the value under the key "status" is not the expected one. However, we do not have much more information about it. 
+
+``` 
+def data_from_response(response: dict) -> dict:
+    """If the response is OK, return its payload.
+
+    - response: A dict like::
+
+    {
+        "status": 200, # <int>
+        "timestamp": "....", # ISO format string of the current
+        date time
+        "payload": { ... } # dict with the returned data
+    }
+
+    - Returns a dictionary like::
+
+    {"data": { .. } }
+
+    - Raises:
+    - ValueError if the HTTP status is != 200
+    """
+    if response["status"] != 200:
+        raise ValueError
+    return {"data": response["payload"]}
+``` 
+
+Now, we have a better idea of what is expected to be received and returned by this function. The documentation serves as valuable input, not only for understanding and getting an idea of what is being passed around, but also as a valuable source for unit tests. We can derive data like this to use as input, and we know what would be the correct and incorrect values to use on the tests. Actually, the tests also work as actionable documentation for our code, but this will be explained in more detail.
+
 ### Function arguments (2 or fewer ideally)
 Limiting the amount of function parameters is incredibly important because it makes 
 testing your function easier. Having more than three leads to a combinatorial explosion 
