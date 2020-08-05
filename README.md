@@ -18,9 +18,11 @@
   7. [Indixes and Slices](#indixes-and-slices)
   8. [Context Manager](#context-manager)
   9. [Hidden Attributes in Class](#hidden-attributes-in-class)
-  10. [Get and Set Properties in Class](#get-and-set-properties-in-class)
-  11. [General Features](#general-features)
-     a. [Design by Contract](#design-by-contract)
+ 10. [Get and Set Properties in Class](#get-and-set-properties-in-class)
+ 11. [General Features](#general-features)
+     1. [Design by Contract](#design-by-contract)
+     2. [Defensive Programing](#defensive-programing)
+ 12. [Variable number of arguments](#variable-number-of-arguments)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
@@ -948,10 +950,46 @@ The first @property method will return the value held by the private attribute '
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Genearl Features**
+## **General Features**
 
 ### **Design by Contract**
 
 Regardless of the mechanism you use to implement Contract Design, it is important to note that exceptions that are thrown for contract violations should never be caught. A breach of contract is a bug in the application, not an anomalous circumstance from which one should attempt to recover.
+
+### **Defensive Programing**
+
+*Comming soon*
+
+**[⬆ back to top](#table-of-contents)**
+## **Arguments in Functions and Methods**
+
+### **Variable number of arguments**
+
+```
+>>> first, *rest = [1, 2, 3, 4, 5]
+>>> first
+1
+>>> rest
+[2, 3, 4, 5]
+>>> *rest, last = range(6)
+>>> rest
+[0, 1, 2, 3, 4]
+>>> last
+5
+>>> first, *middle, last = range(6)
+>>> first
+0
+>>> middle
+[1, 2, 3, 4]
+>>> last
+5
+>>> first, last, *empty = (1, 2)
+>>> first
+1
+>>> last
+2
+>>> empty
+[]
+```
 
 **[⬆ back to top](#table-of-contents)**
