@@ -20,7 +20,7 @@
   9. [Hidden Attributes in Class](#hidden-attributes-in-class)
   10. [Get and Set Properties in Class](#get-and-set-properties-in-class)
   11. [General Features](#general-features)
-     1. [Design by Contract](#design-by-contract)
+     a. [Design by Contract](#design-by-contract)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
