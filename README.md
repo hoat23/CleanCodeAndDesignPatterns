@@ -811,7 +811,7 @@ print(person.name_as_first_and_last)  # => ["Ryan", "McDermott"]
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Indixes and Slices*
+## **Indixes and Slices**
 
 ### **Slices**
 
