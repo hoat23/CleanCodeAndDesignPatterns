@@ -16,8 +16,8 @@
      5. [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
   6. [Don"t repeat yourself (DRY)](#dont-repeat-yourself-dry)
   7. [Indixes and Slices](#indixes-and-slices)
-  8. [Context Manager]#(context-Manager)
-  9. [Hidden Attributes in Class]#(hidden-attributes-in-class)
+  8. [Context Manager](#context-manager)
+  9. [Hidden Attributes in Class](#hidden-attributes-in-class)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
