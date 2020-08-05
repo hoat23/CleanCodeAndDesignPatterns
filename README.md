@@ -22,7 +22,8 @@
  11. [General Features](#general-features)
      1. [Design by Contract](#design-by-contract)
      2. [Defensive Programing](#defensive-programing)
- 12. [Variable number of arguments](#variable-number-of-arguments)
+ 12. [Arguments in Functions and Methods](#arguments-in-functions-and-methods)
+     1. [Variable number of arguments](#variable-number-of-arguments)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
