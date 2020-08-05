@@ -18,6 +18,7 @@
   7. [Indixes and Slices](#indixes-and-slices)
   8. [Context Manager](#context-manager)
   9. [Hidden Attributes in Class](#hidden-attributes-in-class)
+  10. [Get and Set Properties in Class](#get-and-set-properties-in-class)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
@@ -908,5 +909,39 @@ What's actually happening is that with the double underscores, Python creates a 
 >>> conn.connect()
 connecting with 30s
 ```
+
+**[⬆ back to top](#table-of-contents)**
+
+## **Get and Set Properties in Class**
+
+Don't write custom get_* and set_* methods for all attributes on your objects. Most of the time, leaving them as regular attributes is just enough. If you need to modify the logic for when an attribute is retrieved or modified, then use properties.
+
+```
+import re
+
+EMAIL_FORMAT = re.compile(r"[^@]+@[^@]+\.[^@]+")
+
+
+def is_valid_email(potentially_valid_email: str):
+    return re.match(EMAIL_FORMAT, potentially_valid_email) is not None
+
+
+class User:
+    def __init__(self, username):
+        self.username = username
+        self._email = None
+
+    @property
+    def email(self):
+        return self._email
+
+    @email.setter
+    def email(self, new_email):
+        if not is_valid_email(new_email):
+            raise ValueError(f"Can't set {new_email} as it's not a 
+            valid email")
+        self._email = new_email
+```
+The first @property method will return the value held by the private attribute 'email'. The second method uses '@email.setter', with the already defined property of the previous method.
 
 **[⬆ back to top](#table-of-contents)**
