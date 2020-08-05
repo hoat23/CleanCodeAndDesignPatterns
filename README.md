@@ -15,7 +15,7 @@
      4. [I: Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
      5. [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
   6. [Don"t repeat yourself (DRY)](#dont-repeat-yourself-dry)
-  7. [Indixes and Slices] (#indixes-and-slices)
+  7. [Indixes and Slices](#indixes-and-slices)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
