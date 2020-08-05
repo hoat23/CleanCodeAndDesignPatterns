@@ -15,6 +15,7 @@
      4. [I: Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
      5. [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
   6. [Don"t repeat yourself (DRY)](#dont-repeat-yourself-dry)
+  7. [Indixes and Slices] (#indixes-and-slices)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
@@ -807,5 +808,33 @@ print(person.name_as_first_and_last)  # => ["Ryan", "McDermott"]
 ## **Don"t repeat yourself (DRY)**
 
 *Coming soon*
+
+**[⬆ back to top](#table-of-contents)**
+
+## **Indixes and Slices*
+
+### **Slices**
+
+```
+>>> my_numbers = (1, 1, 2, 3, 5, 8, 13, 21)
+>>> my_numbers[2:5]
+(2, 3, 5)
+```
+
+In this case, the syntax on the square brackets means that we get all of the elements on the tuple, starting from the index of the first number (inclusive), up to the index on the second one (not including it). Slices work this way in Python by excluding the end of the selected interval.
+
+```
+>>> interval = slice(1, 7, 2)
+>>> my_numbers[interval]
+(1, 3, 8)
+
+>>> interval = slice(None, 3)
+>>> my_numbers[interval] == my_numbers[:3]
+True
+```
+
+### **Creating you own sequences**
+
+*Comming soon*
 
 **[⬆ back to top](#table-of-contents)**
