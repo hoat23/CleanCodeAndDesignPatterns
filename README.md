@@ -16,6 +16,8 @@
      5. [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
   6. [Don"t repeat yourself (DRY)](#dont-repeat-yourself-dry)
   7. [Indixes and Slices](#indixes-and-slices)
+  8. [Context Manager]#(context-Manager)
+  9. [Hidden Attributes in Class]#(hidden-attributes-in-class)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
@@ -837,6 +839,8 @@ True
 
 *Comming soon*
 
+**[⬆ back to top](#table-of-contents)**
+
 ## **Context Manager**
 ```
 import contextlib
@@ -868,6 +872,29 @@ try:
         raise RuntimeError('error message')
 except Exception as err:
     print('  Had an error:', err)
+```
+
+**[⬆ back to top](#table-of-contents)**
+
+## **Hidden Attributes in Class**
+
+```
+>>> class Connector:
+...     def __init__(self, source):
+...         self.source = source
+...         self.__timeout = 60
+...
+...      def connect(self):
+...         print("connecting with {0}s".format(self.__timeout))
+...         # ...
+... 
+>>> conn = Connector("postgresql://localhost")
+>>> conn.connect()
+connecting with 60s
+>>> conn.__timeout
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Connector' object has no attribute '__timeout'
 ```
 
 **[⬆ back to top](#table-of-contents)**
