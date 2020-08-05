@@ -19,6 +19,8 @@
   8. [Context Manager](#context-manager)
   9. [Hidden Attributes in Class](#hidden-attributes-in-class)
   10. [Get and Set Properties in Class](#get-and-set-properties-in-class)
+  11. [General Features](#general-features)
+     1. [Design by Contract](#design-by-contract)
 
 #### Repository of reference: https://github.com/zedr/clean-code-python/blob/master/README.md
 
@@ -943,5 +945,13 @@ class User:
         self._email = new_email
 ```
 The first @property method will return the value held by the private attribute 'email'. The second method uses '@email.setter', with the already defined property of the previous method.
+
+**[⬆ back to top](#table-of-contents)**
+
+## **Genearl Features**
+
+### **Design by Contract**
+
+Regardless of the mechanism you use to implement Contract Design, it is important to note that exceptions that are thrown for contract violations should never be caught. A breach of contract is a bug in the application, not an anomalous circumstance from which one should attempt to recover.
 
 **[⬆ back to top](#table-of-contents)**
