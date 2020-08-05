@@ -897,4 +897,16 @@ Traceback (most recent call last):
 AttributeError: 'Connector' object has no attribute '__timeout'
 ```
 
+What's actually happening is that with the double underscores, Python creates a different name for the attribute (this is called name mangling). What it does is create the attribute with the following name instead: "_<class-name>__<attribute-name>". In this case, an attribute named '_Connector__timeout', will be created, and such an attribute can be accessed (and modified) as follows:
+  
+```
+>>> vars(conn)
+{'source': 'postgresql://localhost', '_Connector__timeout': 60}
+>>> conn._Connector__timeout
+60
+>>> conn._Connector__timeout = 30
+>>> conn.connect()
+connecting with 30s
+```
+
 **[⬆ back to top](#table-of-contents)**
