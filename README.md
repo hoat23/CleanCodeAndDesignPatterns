@@ -57,6 +57,12 @@ Original Variable as String	some awesome var:
 
 Now that you've been introduced to the most common case types, you're prepared to hop into most of the popular languages and know what conventions to keep when you're writing your own code!
 
+#### Python Conventions
+
+- Snake case for method names and instance variables (PEP8). (#https://www.python.org/dev/peps/pep-0008/#method-names-and-instance-variables) 
+- Upper case snake case for constants.
+
+
 ### Use meaningful and pronounceable variable names
 
 **Bad:**
