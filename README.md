@@ -958,6 +958,8 @@ The first @property method will return the value held by the private attribute '
 
 Regardless of the mechanism you use to implement Contract Design, it is important to note that exceptions that are thrown for contract violations should never be caught. A breach of contract is a bug in the application, not an anomalous circumstance from which one should attempt to recover.
 
+Reference: https://www.python.org/dev/peps/pep-0316/
+
 ### **Defensive Programing**
 
 *Comming soon*
