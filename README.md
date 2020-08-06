@@ -22,6 +22,7 @@
  11. [General Features](#general-features)
      1. [Design by Contract](#design-by-contract)
      2. [Defensive Programing](#defensive-programing)
+     3. [Orthogonality in Software](#ortogonality-in-software)
  12. [Arguments in Functions and Methods](#arguments-in-functions-and-methods)
      1. [Variable number of arguments](#variable-number-of-arguments)
 
@@ -960,6 +961,38 @@ Regardless of the mechanism you use to implement Contract Design, it is importan
 ### **Defensive Programing**
 
 *Comming soon*
+
+### **Orthogonality in Software**
+
+Changing a module, class, or function should have no impact on the outside world to that component that is being modified. This is of course highly desirable, but not always possible. But even for cases where it's not possible, a good design will try to minimize the impact as much as possible. We have seen ideas such as separation of concerns, cohesion, and isolation of components.
+
+In terms of the runtime structure of software, orthogonality can be interpreted as the fact that makes changes (or side-effects) local. This means, for instance, that calling a method on an object should not alter the internal state of other (unrelated) objects. We have already (and will continue to do so) emphasized in this book the importance of minimizing side-effects in our code.
+
+```
+def calculate_price(base_price: float, tax: float, discount: float) -> 
+    return (base_price * (1 + tax)) * (1 - discount)
+
+
+def show_price(price: float) -> str:
+    return "$ {0:,.2f}".format(price)
+
+
+def str_final_price(base_price: float, tax: float, discount: float, fmt_function=str) -> str:
+    return fmt_function(calculate_price(base_price, tax, discount))
+```
+
+Changes in show_price do not affect calculate_price. We can make changes to either function, knowing that the other one will remain as it was:
+
+```
+>>> str_final_price(10, 0.2, 0.5)
+'6.0'
+
+>>> str_final_price(1000, 0.2, 0)
+'1200.0'
+
+>>> str_final_price(1000, 0.2, 0.1, fmt_function=show_price)
+'$ 1,080.00'
+```
 
 **[⬆ back to top](#table-of-contents)**
 ## **Arguments in Functions and Methods**
