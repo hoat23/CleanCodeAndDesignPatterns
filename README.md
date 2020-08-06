@@ -62,6 +62,10 @@ Now that you've been introduced to the most common case types, you're prepared t
 - Snake case for method names and instance variables (PEP8 https://www.python.org/dev/peps/pep-0008/#method-names-and-instance-variables).
 - Upper case snake case for constants.
 
+Libraries to evaluate the style and good practices of the code:
+- pylint
+- pycodestyle
+- pydocstyle
 
 ### Use meaningful and pronounceable variable names
 
