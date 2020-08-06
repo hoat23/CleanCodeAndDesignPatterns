@@ -59,7 +59,7 @@ Now that you've been introduced to the most common case types, you're prepared t
 
 #### Python Conventions
 
-- Snake case for method names and instance variables (PEP8). (#https://www.python.org/dev/peps/pep-0008/#method-names-and-instance-variables) 
+- Snake case for method names and instance variables (PEP8 https://www.python.org/dev/peps/pep-0008/#method-names-and-instance-variables).
 - Upper case snake case for constants.
 
 
