@@ -47,7 +47,7 @@ Targets Python3.7+
 
 ### Most Common Programming Case Types
 
-Original Variable as String	some awesome var
+Original Variable as String	some awesome var:
 
 - Camel Case	          : someAwesomeVar
 - Snake Case	          : some_awesome_var
