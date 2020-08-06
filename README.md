@@ -44,6 +44,19 @@ Inspired from [clean-code-javascript](https://github.com/ryanmcdermott/clean-cod
 Targets Python3.7+
 
 ## **Variables**
+
+### Most Common Programming Case Types
+
+Original Variable as String	some awesome var
+
+Camel Case	          someAwesomeVar
+Snake Case	          some_awesome_var
+Kebab Case            some-awesome-var
+Pascal Case	          SomeAwesomeVar
+Upper Case Snake Case	SOME_AWESOME_VAR
+
+Now that you've been introduced to the most common case types, you're prepared to hop into most of the popular languages and know what conventions to keep when you're writing your own code!
+
 ### Use meaningful and pronounceable variable names
 
 **Bad:**
