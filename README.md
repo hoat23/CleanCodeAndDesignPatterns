@@ -840,7 +840,7 @@ Abstractions have to be organized in such a way that they do not depend on detai
 #### **A Case of Rigid Dependencies**
 
 <p align="center">
-  <img width="230" height="300" src="https://github.com/hoat23/CleanCodeAndDesignPatterns/blob/master/img/dependency_inversion_01.png?raw=true">
+  <img width="230" height="150" src="https://github.com/hoat23/CleanCodeAndDesignPatterns/blob/master/img/dependency_inversion_01.png?raw=true">
 </p>
 
 If something changes in the way we want to send data to Syslog, EventStreamer will have to be modified. If we want to change the data destination for a different one or add new ones at runtime, we are also in trouble because we will find ourselves constantly modifying the stream() method to adapt it to these requirements.
