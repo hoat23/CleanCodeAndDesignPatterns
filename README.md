@@ -833,7 +833,25 @@ print(person.name_as_first_and_last)  # => ["Ryan", "McDermott"]
 ### **Interface Segregation Principle (ISP)**
 ### **Dependency Inversion Principle (DIP)**
 
-*Coming soon*
+The idea of inverting dependencies is that our code should not adapt to details or concrete implementations, but rather the other way around: we want to force whatever implementation or detail to adapt to our code via a sort of API.
+
+Abstractions have to be organized in such a way that they do not depend on details, but rather the other way around—the details (concrete implementations) should depend on abstractions.
+
+#### **A Case of Rigid Dependencies**
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/hoat23/CleanCodeAndDesignPatterns/blob/master/img/dependency_inversion_01.png?raw=true">
+</p>
+
+If something changes in the way we want to send data to Syslog, EventStreamer will have to be modified. If we want to change the data destination for a different one or add new ones at runtime, we are also in trouble because we will find ourselves constantly modifying the stream() method to adapt it to these requirements.
+
+#### **Inverting the Dependencies**
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/hoat23/CleanCodeAndDesignPatterns/blob/master/img/dependency_inversion_02.png?raw=true">
+</p>
+
+The solution to these problems is to make EventStreamer work with an interface, rather than a concrete class. This way, implementing this interface is up to the low-level classes that contain the implementation details:
 
 **[⬆ back to top](#table-of-contents)**
 
