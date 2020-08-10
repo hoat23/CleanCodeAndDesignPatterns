@@ -295,7 +295,7 @@ def create_micro_brewery(name: Text = "Hipster Brew Co."):
 
 Consider the following example. Let's say we have a function that expects a dictionary to validate some data:
 
-```
+```python
 def data_from_response(response: dict) -> dict:
     if response["status"] != 200:
         raise ValueError
@@ -303,7 +303,7 @@ def data_from_response(response: dict) -> dict:
 ``` 
 Here, we can see a function that takes a dictionary and returns another dictionary. Potentially, it can raise an exception if the value under the key "status" is not the expected one. However, we do not have much more information about it. 
 
-``` 
+```python
 def data_from_response(response: dict) -> dict:
     """If the response is OK, return its payload.
 
@@ -840,7 +840,7 @@ Abstractions have to be organized in such a way that they do not depend on detai
 #### **A Case of Rigid Dependencies**
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/hoat23/CleanCodeAndDesignPatterns/blob/master/img/dependency_inversion_01.png?raw=true">
+  <img width="230" height="300" src="https://github.com/hoat23/CleanCodeAndDesignPatterns/blob/master/img/dependency_inversion_01.png?raw=true">
 </p>
 
 If something changes in the way we want to send data to Syslog, EventStreamer will have to be modified. If we want to change the data destination for a different one or add new ones at runtime, we are also in trouble because we will find ourselves constantly modifying the stream() method to adapt it to these requirements.
@@ -890,7 +890,7 @@ True
 **[⬆ back to top](#table-of-contents)**
 
 ## **Context Manager**
-```
+```python
 import contextlib
 
 class Door:
@@ -905,7 +905,7 @@ class Door:
 ```
 ### **Normal example**
 
-```
+```python
 with contextlib.closing(Door()) as door:
     print('  inside with statement: {}'.format(door.status))
 print('  outside with statement: {}'.format(door.status))
@@ -913,7 +913,7 @@ print('  outside with statement: {}'.format(door.status))
 
 ### **Error handling example**
 
-```
+```python
 try:
     with contextlib.closing(Door()) as door:
         print('  raising from inside with statement')
@@ -963,7 +963,7 @@ connecting with 30s
 
 Don't write custom get_* and set_* methods for all attributes on your objects. Most of the time, leaving them as regular attributes is just enough. If you need to modify the logic for when an attribute is retrieved or modified, then use properties.
 
-```
+```python
 import re
 
 EMAIL_FORMAT = re.compile(r"[^@]+@[^@]+\.[^@]+")
@@ -1011,7 +1011,7 @@ Changing a module, class, or function should have no impact on the outside world
 
 In terms of the runtime structure of software, orthogonality can be interpreted as the fact that makes changes (or side-effects) local. This means, for instance, that calling a method on an object should not alter the internal state of other (unrelated) objects. We have already (and will continue to do so) emphasized in this book the importance of minimizing side-effects in our code.
 
-```
+```python
 def calculate_price(base_price: float, tax: float, discount: float) -> 
     return (base_price * (1 + tax)) * (1 - discount)
 
