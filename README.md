@@ -103,6 +103,7 @@ name="apptool",
     package_dir={"": "src"},
 )
 ```
+More Documentation: https://python-packaging-user-guide.readthedocs.io/guides/distributing-packages-using-setuptools/#distributing-packages
 
 ### Use meaningful and pronounceable variable names
 
