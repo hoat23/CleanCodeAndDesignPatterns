@@ -67,6 +67,8 @@ Libraries to evaluate the style and good practices of the code:
 - pycodestyle
 - pydocstyle
 
+#### Library in Python
+
 The minimum layout for a library would look like this:
 
 ```.
@@ -82,6 +84,26 @@ The minimum layout for a library would look like this:
     ├── integration
     └── unit
 ```
+
+##### setup.py
+```
+from setuptools import find_packages, setup
+
+with open("README.rst", "r") as longdesc:
+    long_description = longdesc.read()
+
+
+setup(
+name="apptool",
+    description="Description of the intention of the package",
+    long_description=long_description,
+    author="Dev team",
+    version="0.1.0",
+    packages=find_packages(where="src/"),
+    package_dir={"": "src"},
+)
+```
+
 ### Use meaningful and pronounceable variable names
 
 **Bad:**
