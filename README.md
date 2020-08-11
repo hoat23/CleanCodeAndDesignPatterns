@@ -67,6 +67,21 @@ Libraries to evaluate the style and good practices of the code:
 - pycodestyle
 - pydocstyle
 
+The minimum layout for a library would look like this:
+
+```.
+├── Makefile
+├── README.rst
+├── setup.py
+├── src
+│   └── apptool
+│   ├── common.py
+│   ├── __init__.py
+│   └── parse.py
+└── tests
+    ├── integration
+    └── unit
+```
 ### Use meaningful and pronounceable variable names
 
 **Bad:**
