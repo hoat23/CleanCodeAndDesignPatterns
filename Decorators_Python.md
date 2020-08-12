@@ -187,7 +187,7 @@ def traced_function_wrong(function):
     return wrapped
 ```
 
-Now we appy the decorator to a regular function, thinking that it will work just fine:
+Now we apply the decorator to a regular function, thinking that it will work just fine:
 ```python
 @traced_function_wrong
 def process_with_delay(callback, delay=0):
