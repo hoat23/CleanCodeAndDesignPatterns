@@ -125,3 +125,44 @@ def run_with_custom_exceptions(task):
 def run_with_custom_parameters(task):
     return task.run()
 ```
+
+## Effective decorators - avoiding common mistakes
+
+### wrong
+
+```python
+# decorator_wraps_1.py
+def trace_decorator(function):
+    def wrapped(*args, **kwargs):
+        logger.info("running %s", function.__qualname__)
+        return function(*args, **kwargs)
+
+    return wrapped
+
+@trace_decorator
+def process_account(account_id):
+    """Process an account by Id."""
+    logger.info("processing account %s", account_id)
+    ...
+```
+
+### right
+
+```python
+# decorator_wraps_2.py
+from functools import wraps
+def trace_decorator(function):
+    @wraps(function)
+    def wrapped(*args, **kwargs):
+        logger.info("running %s", function.__qualname__)
+        return function(*args, **kwargs)
+
+    return wrapped
+
+@trace_decorator
+def process_account(account_id):
+    """Process an account by Id."""
+    logger.info("processing account %s", account_id)
+    ...
+
+```
