@@ -218,7 +218,7 @@ INFO:function <function process_with_delay at 0x> took 17.01s
 
 By fix this bug is very simple-we just have to move the code inside the "wrapped" function in order to delay its execution:
 
-```
+```python
 def traced_function(function):
     @functools.wraps(function)
     def wrapped(*args, **kwargs):
@@ -238,3 +238,4 @@ With this new version, the previos problems are resolved.
 
 ## Requiring decorators with side-effectos
 
+Sometimes, side-effects on decorators are necessary, and we should not delay their execution until the very last possible time, because that's part of the mechanism which is required for the to works.
