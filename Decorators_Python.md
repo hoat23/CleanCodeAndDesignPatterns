@@ -239,3 +239,27 @@ With this new version, the previos problems are resolved.
 ## Requiring decorators with side-effectos
 
 Sometimes, side-effects on decorators are necessary, and we should not delay their execution until the very last possible time, because that's part of the mechanism which is required for the to works.
+
+...
+
+## Analyzing good decorators
+
+Identify traits that good decorators should have:
+- Encapsulation, or separation of concerns: A good decorator should effectively separate different responsibilities between what it does and what it is decorating. It cannot be a leaky abstraction, meaning that a client of the decorator should only invoke it in black box mode, without knowing how it is actually implementing its logic.
+- Orthogonality: What the decorator does should be independent, and as decoupled as possible from the object it is decorating.
+- Reusability: It is desirable that the decorator can be applied to multiple types, and not that it just appears on one instance of one function, because that means that it could just have been a function instead. It has to be generic enough.
+
+A nice example of decorators is Celery project, where a task is defined by applying the decorator of the task from the application to a function:
+
+```python
+@app.task
+def mytask():
+    ...
+```
+
+Another common use of decorators is in web frameworks(Pyramid, Flask and Sanic)
+```python
+@route("/", method=["GET"])
+def view_handler(request):
+ ...
+```
