@@ -166,3 +166,38 @@ def process_account(account_id):
     ...
 
 ```
+## Incorrect handling of side-effects in a decorator
+
+Let's imagine the case of a decorator that was created with the goal of logging when a function started running and then logging its running time:
+
+```python
+def traced_function_wrong(function):
+    logger.info("started execution of %s", function)
+    start_time = time.time()
+
+    @functools.wraps(function)
+    def wrapped(*args, **kwargs):
+        result = function(*args, **kwargs)
+        logger.info(
+            "function %s took %.2fs",
+            function,
+            time.time() - start_time
+        )
+        return result
+    return wrapped
+```
+
+Now we appy the decorator to a regular function, thinking that it will work just fine:
+```python
+@traced_function_wrong
+def process_with_delay(callback, delay=0):
+    time.sleep(delay)
+    return callback()
+```
+
+This decorator has a subtle, yet critical bug in it. Firts, let's import the function, call it several times, and see what happens: 
+
+```bash
+>>> from decorator_side_effects_1 import process_with_delay
+INFO:started execution of <function process_with_delay at 0x...>
+```
