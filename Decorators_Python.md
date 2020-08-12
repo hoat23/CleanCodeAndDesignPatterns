@@ -201,3 +201,40 @@ This decorator has a subtle, yet critical bug in it. Firts, let's import the fun
 >>> from decorator_side_effects_1 import process_with_delay
 INFO:started execution of <function process_with_delay at 0x...>
 ```
+How long it takes to run?
+```bash
+>>> main()
+...
+INFO:function <function process_with_delay at 0x> took 8.67s
+
+>>> main()
+...
+INFO:function <function process_with_delay at 0x> took 13.39s
+
+>>> main()
+...
+INFO:function <function process_with_delay at 0x> took 17.01s
+```
+
+By fix this bug is very simple-we just have to move the code inside the "wrapped" function in order to delay its execution:
+
+```
+def traced_function(function):
+    @functools.wraps(function)
+    def wrapped(*args, **kwargs):
+        logger.info("started execution of %s", function.__qualname__)
+        start_time = time.time()
+        result = function(*args, **kwargs)
+        logger.info(
+            "function %s took %.2fs",
+            function.__qualname__,
+            time.time() - start_time
+        )
+        return result
+    return wrapped
+```
+
+With this new version, the previos problems are resolved.
+
+## Requiring decorators with side-effectos
+
