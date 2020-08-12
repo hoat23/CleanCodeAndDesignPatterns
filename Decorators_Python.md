@@ -22,11 +22,11 @@ class EventSerializer:
         return {
             field: transformation( getattr(event,field) )
             for field, transformation in 
-            self.serialization_fields, items()
+            self.serialization_fields.items()
         }
 
 class Serialization:
-    def __init__(sef, **transformations):
+    def __init__(self, **transformations):
         self.serializer = EventSerializer(transformations)
     
     def __call__(self, event_class):
@@ -39,19 +39,17 @@ class Serialization:
 
 ```python
 @Serialization(
-    username=show_original,
-    password=hide_field,
-    ip=show_original,
-    timestamp=format_time,
+    username = show_original,
+    password = hide_field,
+    ip = show_original,
+    timestamp = format_time
 )
 class LoginEvent:
-
     def __init__(self, username, password, ip, timestamp):
         self.username = username
         self.password = password
         self.ip = ip
         self.timestamp = timestamp
-
 ```
 
 #### Second example of use
