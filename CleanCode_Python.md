@@ -1108,3 +1108,6 @@ Changes in show_price do not affect calculate_price. We can make changes to eith
 ```
 
 **[⬆ back to top](#table-of-contents)**
+
+## More Info
+- https://wiki.python.org/moin/PythonSpeed/PerformanceTips
